@@ -1,1 +1,24 @@
+spring:
+  application:
+    name: policy-service
 
+  datasource:
+     url: jdbc:postgresql://localhost:5432/policy_db
+     username: postgres
+     password: Postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+server:
+  port: 8082
+
+#spring.jpa.properties.hibernate.format_sql=true
+
+#eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
