@@ -12,22 +12,22 @@ spring:
          uri: lb://POLICY-SERVICE
          predicates:
            - Path=/policies/**
-         filters:
-           - StripPrefix=1
+         # filters:
+         #   - StripPrefix=1
 
        - id: customer-service
          uri: lb://CUSTOMER-SERVICE
          predicates:
             - Path=/customers/**
-         filters:
-              - StripPrefix=1
+         # filters:
+         #      - StripPrefix=1
 
        - id: claim-service
          uri: lb://CLAIM-SERVICE
          predicates:
            - Path=/claims/**
-         filters:
-           - StripPrefix=1
+         # filters:
+         #   - StripPrefix=1
 
 
 
