@@ -13,7 +13,7 @@ spring:
         - id: customer-service
           uri: lb://CUSTOMER-SERVICE
           predicates:
-            - Path=/customers/**
+            - Path=/api/v1/customers/**
           filters:
             - StripPrefix=2
 
