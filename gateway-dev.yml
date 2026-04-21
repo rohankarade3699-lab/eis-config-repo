@@ -9,7 +9,7 @@ spring:
     gateway:
       routes:
        - id: policy-service
-         uri: lb://POLICY-SERVICE
+         uri: http://localhost:8082
          predicates:
            - Path=/policies/**
          # filters:
