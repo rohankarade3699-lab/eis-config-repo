@@ -6,7 +6,7 @@ spring:
     gateway:
       routes:
          - id: policy-service
-          uri: localhost:8082/
+          uri: localhost:8082
           predicates:
             - Path=/policies/**
       
@@ -23,30 +23,6 @@ spring:
           predicates:
             - Path=/claims/**
 
-# spring:
-#   application:
-#     name: gateway
-
-#   cloud:
-#     gateway:
-#       routes:
-#         - id: policy-service
-#           uri: lb://POLICY-SERVICE
-#           predicates:
-#             - Path=/policies/**
-#           # filters:
-#           #   - StripPrefix=1
-
-#         - id: customer-service
-#           uri: lb://CUSTOMER-SERVICE
-#           predicates:
-#             - Path=/customers/**
-#           # filters:
-#           #   - StripPrefix=1
-
-#         - id: claim-service
-#           uri: lb://CLAIM-SERVICE
-#           predicates:
-#             - Path=/claims/**
-#           # filters:
-#           #   - StripPrefix=1
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
