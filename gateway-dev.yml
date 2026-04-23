@@ -8,7 +8,9 @@ spring:
         - id: policy-service
           uri: lb://POLICY-SERVICE
           predicates:
-            - Path=/policies/**
+            - Path=/api/policies/**
+             filters:
+            - StripPrefix=2
 
         - id: customer-service
           uri: lb://CUSTOMER-SERVICE
