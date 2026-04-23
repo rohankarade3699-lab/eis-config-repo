@@ -5,12 +5,12 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: policy-service
+         - id: policy-service
           uri: lb://POLICY-SERVICE
           predicates:
             - Path=/api/policies/**
-             filters:
-            - StripPrefix=2
+          filters:
+            - StripPrefix=1
 
         - id: customer-service
           uri: lb://CUSTOMER-SERVICE
