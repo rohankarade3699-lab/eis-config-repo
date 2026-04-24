@@ -6,8 +6,7 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/policies/**
-          filters:
-            - StripPrefix=1
+          # no StripPrefix filter here
       
 
         - id: customer-service
