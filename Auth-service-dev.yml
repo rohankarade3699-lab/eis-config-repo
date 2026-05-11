@@ -4,8 +4,7 @@ spring:
     name: Auth-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/claim_db
-    username: postgres
+    url: jdbc:postgresql://localhost:5432/authdb
     password: Postgres
 
   jpa:
