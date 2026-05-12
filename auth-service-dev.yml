@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: claim-service
+    
   datasource:
     url: jdbc:postgresql://localhost:5432/authdb
     username: postgres
