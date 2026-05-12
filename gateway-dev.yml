@@ -3,29 +3,24 @@ spring:
     gateway:
       routes:
         - id: auth-service
-          uri: lb://auth-service
+          uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-            
+
         - id: policy-service
           uri: lb://POLICY-SERVICE
           predicates:
             - Path=/policies/**
-          # no StripPrefix filter here
-      
 
         - id: customer-service
           uri: lb://CUSTOMER-SERVICE
           predicates:
             - Path=/customers/**
-          # filters:
-          #   - StripPrefix=2
 
         - id: claim-service
           uri: lb://CLAIM-SERVICE
           predicates:
             - Path=/claims/**
-
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
