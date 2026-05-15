@@ -1,2 +1,12 @@
 server:
   port: 8989
+  
+management:
+
+  tracing:
+    sampling:
+      probability: 1.0
+
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411
