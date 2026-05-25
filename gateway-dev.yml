@@ -3,28 +3,28 @@ spring:
     gateway:
       routes:
 
-        - id: policy-openapi
+        - id: policy-service
           uri: lb://POLICY-SERVICE
           predicates:
             - Path=/policy-service/v3/api-docs
           filters:
             - RewritePath=/policy-service/(?<path>.*), /$\{path}
 
-        - id: customer-openapi
+        - id: customer-service
           uri: lb://CUSTOMER-SERVICE
           predicates:
             - Path=/customer-service/v3/api-docs
           filters:
             - RewritePath=/customer-service/(?<path>.*), /$\{path}
 
-        - id: claim-openapi
+        - id: claim-service
           uri: lb://CLAIM-SERVICE
           predicates:
             - Path=/claim-service/v3/api-docs
           filters:
             - RewritePath=/claim-service/(?<path>.*), /$\{path}
 
-        - id: auth-openapi
+        - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth-service/v3/api-docs
