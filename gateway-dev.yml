@@ -2,25 +2,61 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: auth-service
-          uri: lb://AUTH-SERVICE
-          predicates:
-            - Path=/auth/**
 
-        - id: policy-service
+        - id: policy-openapi
           uri: lb://POLICY-SERVICE
           predicates:
-            - Path=/policies/**
+            - Path=/policy-service/v3/api-docs
+          filters:
+            - RewritePath=/policy-service/(?<path>.*), /$\{path}
 
-        - id: customer-service
+        - id: customer-openapi
           uri: lb://CUSTOMER-SERVICE
           predicates:
-            - Path=/customers/**
+            - Path=/customer-service/v3/api-docs
+          filters:
+            - RewritePath=/customer-service/(?<path>.*), /$\{path}
 
-        - id: claim-service
+        - id: claim-openapi
           uri: lb://CLAIM-SERVICE
           predicates:
-            - Path=/claims/**
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
+            - Path=/claim-service/v3/api-docs
+          filters:
+            - RewritePath=/claim-service/(?<path>.*), /$\{path}
+
+        - id: auth-openapi
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth-service/v3/api-docs
+          filters:
+            - RewritePath=/auth-service/(?<path>.*), /$\{path}
+
+
+
+
+# spring:
+#   cloud:
+#     gateway:
+#       routes:
+#         - id: auth-service
+#           uri: lb://AUTH-SERVICE
+#           predicates:
+#             - Path=/auth/**
+
+#         - id: policy-service
+#           uri: lb://POLICY-SERVICE
+#           predicates:
+#             - Path=/policies/**
+
+#         - id: customer-service
+#           uri: lb://CUSTOMER-SERVICE
+#           predicates:
+#             - Path=/customers/**
+
+#         - id: claim-service
+#           uri: lb://CLAIM-SERVICE
+#           predicates:
+#             - Path=/claims/**
+# logging:
+#   level:
+#     org.springframework.cloud.gateway: DEBUG
