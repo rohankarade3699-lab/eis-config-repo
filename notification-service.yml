@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: notification-service
+
+server:
+  port: 8085
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+
+    consumer:
+      auto-offset-reset: earliest
+      max-poll-records: 50
