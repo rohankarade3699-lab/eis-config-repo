@@ -3,28 +3,56 @@ spring:
     gateway:
       routes:
 
-        - id: policy-service
+        # Policy API
+        - id: policy-service-api
+          uri: lb://POLICY-SERVICE
+          predicates:
+            - Path=/policies/**
+
+        # Policy Swagger
+        - id: policy-service-docs
           uri: lb://POLICY-SERVICE
           predicates:
             - Path=/policy-service/v3/api-docs
           filters:
             - RewritePath=/policy-service/(?<path>.*), /$\{path}
 
-        - id: customer-service
+        # Customer API
+        - id: customer-service-api
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customers/**
+
+        # Customer Swagger
+        - id: customer-service-docs
           uri: lb://CUSTOMER-SERVICE
           predicates:
             - Path=/customer-service/v3/api-docs
           filters:
             - RewritePath=/customer-service/(?<path>.*), /$\{path}
 
-        - id: claim-service
+        # Claim API
+        - id: claim-service-api
+          uri: lb://CLAIM-SERVICE
+          predicates:
+            - Path=/claims/**
+
+        # Claim Swagger
+        - id: claim-service-docs
           uri: lb://CLAIM-SERVICE
           predicates:
             - Path=/claim-service/v3/api-docs
           filters:
             - RewritePath=/claim-service/(?<path>.*), /$\{path}
 
-        - id: auth-service
+        # Auth API
+        - id: auth-service-api
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+
+        # Auth Swagger
+        - id: auth-service-docs
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth-service/v3/api-docs
