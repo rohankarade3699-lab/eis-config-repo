@@ -4,7 +4,7 @@ spring:
       routes:
 
         # Policy API
-        - id: policy-service-api
+        - id: policy-service
           uri: lb://POLICY-SERVICE
           predicates:
             - Path=/policies/**
@@ -18,7 +18,7 @@ spring:
             - RewritePath=/policy-service/(?<path>.*), /$\{path}
 
         # Customer API
-        - id: customer-service-api
+        - id: customer-service
           uri: lb://CUSTOMER-SERVICE
           predicates:
             - Path=/customers/**
@@ -32,7 +32,7 @@ spring:
             - RewritePath=/customer-service/(?<path>.*), /$\{path}
 
         # Claim API
-        - id: claim-service-api
+        - id: claim-service
           uri: lb://CLAIM-SERVICE
           predicates:
             - Path=/claims/**
@@ -46,7 +46,7 @@ spring:
             - RewritePath=/claim-service/(?<path>.*), /$\{path}
 
         # Auth API
-        - id: auth-service-api
+        - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
