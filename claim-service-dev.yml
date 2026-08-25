@@ -21,7 +21,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/  
+      defaultZone: http://discovery-service:8761/eureka/  
 
 management:
   tracing:
