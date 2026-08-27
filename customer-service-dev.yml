@@ -18,30 +18,37 @@ spring:
 server:
   port: 8081
 
-  eureka:
+
+# Eureka must be at root level
+eureka:
   client:
     service-url:
       defaultZone: http://discovery-service:8761/eureka/
-      
+
 
 management:
   tracing:
     sampling:
       probability: 1.0
+
   zipkin:
     tracing:
       endpoint: http://zipkin:9411/api/v2/spans
+
   endpoints:
     web:
       exposure:
         include: "*"
+
   endpoint:
     health:
       show-details: always
 
+
 logging:
   pattern:
     level: "%5p [${spring.application.name},traceId=%X{traceId},spanId=%X{spanId}]"
+
 
 info:
   app:
