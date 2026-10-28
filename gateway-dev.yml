@@ -67,7 +67,7 @@ management:
     sampling:
       probability: 1.0
 
-otlp:
+  otlp:
     tracing:
       endpoint: http://jaeger:4318/v1/traces
 
